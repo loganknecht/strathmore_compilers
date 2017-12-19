@@ -7,6 +7,16 @@ let rec factorial (n : int) : int =
   else n * (factorial (n - 1));;
 ```
 
+
 # OUnit Documentation
 - http://ounit.forge.ocamlcore.org/api-ounit/OUnit2.html#VAL(>::)
 - http://ounit.forge.ocamlcore.org/api-ounit/OUnit2.html#VAL(>:::)
+
+
+# Running the tests
+```bash
+// From the starter-lab0/ directory
+
+make
+./test
+```

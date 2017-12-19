@@ -1,5 +1,16 @@
 open Printf
 
+(* -------------------------------------------------------------------------- *)
+(* Fibonacci substitution style *)
+(* -------------------------------------------------------------------------- *)
+let max (n : int) (m : int) : int =
+    if n > m
+    then n
+    else m;;
+
+(* -------------------------------------------------------------------------- *)
+(* Fibonacci implementation *)
+(* -------------------------------------------------------------------------- *)
 (* let fibonacci_index = 0 *)
 (* let fibonacci_index = 1 *)
 (* let fibonacci_index = 2 *)
@@ -15,9 +26,7 @@ let rec calculate_fibonacci (index : int): int =
     else if index == 1 then 1
     else (calculate_fibonacci (index - 2)) + (calculate_fibonacci (index - 1));;
 
-(printf "Fibonacci of %d is %d\n" fibonacci_index (calculate_fibonacci fibonacci_index))
-
-
+(* (printf "Fibonacci of %d is %d\n" fibonacci_index (calculate_fibonacci fibonacci_index)) *)
 
 
 (* -------------------------------------------------------------------------- *)
