@@ -15,8 +15,18 @@ let check_fun2 _ = (* a failing test *)
 let t_int name value expected = name>::
     (fun _ -> assert_equal expected value ~printer:string_of_int);;
 
+(* a helper for testing strings *)
+let t_string name value expected = name>::
+    (fun _ -> assert_equal expected value ~printer:string_of_int);;
+
+(* -------------------------------------------------------------------------- *)
+(* Labeled functions without abstraction *)
+(* -------------------------------------------------------------------------- *)
 let my_first_test = "my_first_test">::check_fun;;
 let my_second_test = "my_second_test">::check_fun2;;
+(* -------------------------------------------------------------------------- *)
+(* Labeled functions with t_int abstraction *)
+(* -------------------------------------------------------------------------- *)
 let my_third_test = t_int "my_third_test" (2 + 2) 7;;
 let my_fourth_test = t_int "my_fourth_test" (2 + 2) 4;;
 
