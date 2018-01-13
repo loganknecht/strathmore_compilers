@@ -17,7 +17,7 @@ let t_int name value expected = name>::
 
 (* a helper for testing strings *)
 let t_string name value expected = name>::
-    (fun _ -> assert_equal expected value ~printer:string_of_int);;
+    (fun _ -> assert_equal expected value);;
 
 (* -------------------------------------------------------------------------- *)
 (* Labeled functions without abstraction *)
@@ -49,6 +49,7 @@ let fibonacci_test_four = t_int "fibonacci_test_four" (calculate_fibonacci 4) 3;
 let fibonacci_test_five = t_int "fibonacci_test_five" (calculate_fibonacci 5) 5;;
 let fibonacci_test_six = t_int "fibonacci_test_six" (calculate_fibonacci 6) 8;;
 let fibonacci_test_seven = t_int "fibonacci_test_seven" (calculate_fibonacci 7) 13;;
+let fibonacci_test_eight = t_string "fibonacci_test_eight" (calculate_fibonacci 8) 21;;
 
 
 let suite = "suite">:::[
@@ -70,6 +71,7 @@ let suite = "suite">:::[
     fibonacci_test_five;
     fibonacci_test_six;
     fibonacci_test_seven;
+    fibonacci_test_eight;
 ];;
 
 run_test_tt_main suite

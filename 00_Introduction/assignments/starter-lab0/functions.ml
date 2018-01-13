@@ -41,3 +41,38 @@ let rec calculate_fibonacci (index : int): int =
 (calculate_fibonacci 1)
 (calculate_fibonacci 1 - 2) + (calculate_fibonacci 1 - 1)
  *)
+
+(* -------------------------------------------------------------------------- *)
+(* ------------------------------- Section 03 ------------------------------- *)
+(* -------------------------------------------------------------------------- *)
+type btnode =
+  | Leaf
+  | Node of string * btnode * btnode
+
+(* 
+let rec inorder_str (btn : btnode) : string =
+  ...
+ *)
+
+let m1 = match Leaf with
+  | Leaf -> true
+  | Node(s, left, right) -> false;;
+(* m1 is true *)
+
+let m2 = match Leaf with
+  | Leaf -> 44
+  | Node(s, left, right) -> 99;;
+(* m2 is 44 *)
+
+let m3 = match Node("a", Leaf, Leaf) with
+  | Leaf -> "z"
+  | Node(s, left, right) -> s;;
+(* m3 is "a" *)
+
+let m4 = match Node("a", Node("b", Leaf, Leaf), Leaf) with
+  | Leaf -> "z"
+  | Node(s, left, right) ->
+    match left with
+      | Leaf -> "y"
+      | Node(s2, left2, right2) -> s2;;
+(* m4 is "b" *)
