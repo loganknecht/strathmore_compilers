@@ -49,11 +49,6 @@ type btnode =
   | Leaf
   | Node of string * btnode * btnode
 
-(* 
-let rec inorder_str (btn : btnode) : string =
-  ...
- *)
-
 let m1 = match Leaf with
   | Leaf -> true
   | Node(s, left, right) -> false;;
@@ -76,3 +71,11 @@ let m4 = match Node("a", Node("b", Leaf, Leaf), Leaf) with
       | Leaf -> "y"
       | Node(s2, left2, right2) -> s2;;
 (* m4 is "b" *)
+
+
+let rec inorder_str (bt : btnode) : string =
+  match bt with
+    | Leaf -> ""
+    | Node(s, left, right) ->
+      (inorder_str left) ^ s ^ (inorder_str right)
+

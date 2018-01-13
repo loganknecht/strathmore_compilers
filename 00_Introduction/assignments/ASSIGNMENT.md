@@ -13,6 +13,7 @@ This doesn't require a change in the function because the `assert_equal` functio
 ## Question 2
 Write at least five interesting tests for inorder_str.
 
+
 ## Question 3
 Write out the substitution-based evaluation of inorder_str on a tree with at least 3 nodes.
 

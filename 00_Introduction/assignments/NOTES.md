@@ -23,6 +23,16 @@ make
 
 
 # Syntax
+## The `->` operator
+An anonymous function
+
+```
+fun a b -> ...
+```
+
+See the Functions section
+http://rigaux.org/language-study/syntax-across-languages-per-language/OCaml.html
+
 ## The `>::` operator
 From ounit
 
@@ -54,12 +64,12 @@ This is essentially the same as a keyworkd parameter in python that allows the a
 Labeled variables can be supplied in any order.
 
 
-# The `_` character
+## The `_` character
 This is known as a wildcard character and is used for pattern matching in ocaml
 
 https://caml.inria.fr/pub/docs/oreilly-book/html/book-ora016.html
 
-# The `~printer:string_of_int` argument
+## The `~printer:string_of_int` argument
 
 OUnit Documentation (See the `assert_equal`)
 http://ounit.forge.ocamlcore.org/api-ounit-dev/OUnit2.html
@@ -84,7 +94,7 @@ https://caml.inria.fr/pub/docs/u3-ocaml/ocaml051.html
 
 This is an argument for the `assert_equal` method from `o_unit`
 
-# The `string_of_int` function
+## The `string_of_int` function
 
 `string_of_int` is a function to convert an integer to string
 
@@ -96,7 +106,7 @@ val string_of_int : int -> string
 Return the string representation of an integer, in decimal.
 ```
 
-# The `match` keyword of Ocaml
+## The `match` keyword of Ocaml
 
 See just the whole page
 http://caml.inria.fr/pub/docs/oreilly-book/html/book-ora016.html
