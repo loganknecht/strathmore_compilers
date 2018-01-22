@@ -77,3 +77,4 @@ let rec inorder_str (bt : btnode) : string =
   match bt with
     | Leaf -> ""
     | Node(s, left, right) -> (inorder_str left) ^ s ^ (inorder_str right)
+    (* | Node(s, left, right) -> (inorder_str left) ^ s ^ ", " ^ (inorder_str right) *)

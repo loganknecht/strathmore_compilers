@@ -13,12 +13,17 @@ This doesn't require a change in the function because the `assert_equal` functio
 ## Question 2
 Write at least five interesting tests for inorder_str.
 
+Please see `00_Introduction/assignments/starter-lab0/test.ml`
 
 ## Question 3
 Write out the substitution-based evaluation of inorder_str on a tree with at least 3 nodes.
 
+No.
+
 ## Question 4
 Write a function size that takes a btnode and produces an integer that is the number of Nodes in the tree.
+
+
 
 ## Question 5
 Write a function height that takes a btnode and produces an integer that is the height of the tree.

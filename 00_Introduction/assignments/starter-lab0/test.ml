@@ -75,11 +75,21 @@ let leaf_node_five = Node("five", Leaf, Leaf);;
 
 (* Level 1 *)
 let leaf_node_four = Node("four", leaf_node_two, leaf_node_five);;
-(* (printf "Derp derp derp") *)
-(* (printf leaf_node_one.s) *)
 
-(* let inorder_str = "inorder_str_only_leaf_nodes" () *)
-(* TODO *)
+let child_node = Node("child", Leaf, Leaf);;
+let root_node = Node("root", child_node, child_node);;
+
+(* Example how to run *)
+(* 
+let inorder_str_output = (inorder_str leaf_node_four);;
+(printf "inorder_str_only_leaf_nodes: %s\n" inorder_str_output);;
+ *)
+
+let inorder_str_test_well_formed_complete_binary_tree = t_string "inorder_str_test_well_formed_complete_binary_tree" (inorder_str leaf_node_four) "onetwothreefourfive";;
+let inorder_str_test_well_formed_full_binary_tree = t_string "inorder_str_test_well_formed_full_binary_tree" (inorder_str leaf_node_two) "onetwothree";;
+let inorder_str_test_node_with_only_leaf_nodes = t_string "inorder_str_test_node_with_only_leaf_nodes" (inorder_str leaf_node_one) "one";;
+let inorder_str_test_leaf_node_no_children = t_string "inorder_str_test_leaf_node_no_children" (inorder_str Leaf) "";;
+let inorder_str_test_node_with_children_pointing_to_same_node = t_string "inorder_str_test_node_with_children_pointing_to_same_node" (inorder_str root_node) "childrootchild";;
 
 (* -------------------------------------------------------------------------- *)
 (* Test suite creation *)
@@ -115,7 +125,11 @@ let fibonacci_suite = "fibonacci_suite">:::[
 
 (* ---------- inorder_str testing ---------- *)
 let inorder_str_suite = "inorder_str_suite">:::[
-(* NOTHING!!! *)
+    inorder_str_test_well_formed_complete_binary_tree;
+    inorder_str_test_well_formed_full_binary_tree;
+    inorder_str_test_node_with_only_leaf_nodes;
+    inorder_str_test_leaf_node_no_children;
+    inorder_str_test_node_with_children_pointing_to_same_node;
 ];;
 
 
