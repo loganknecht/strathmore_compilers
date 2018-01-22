@@ -18,7 +18,46 @@ Please see `00_Introduction/assignments/starter-lab0/test.ml`
 ## Question 3
 Write out the substitution-based evaluation of inorder_str on a tree with at least 3 nodes.
 
-No.
+```ocaml
+(* -------------------------------------------------------------------------- *)
+(*  In-order traversal = 1,2,3                                                *)
+(*               2                                                            *)
+(*            /     \                                                         *)
+(*           1       3                                                        *)
+(* -------------------------------------------------------------------------- *)
+```
+
+```
+(inorder_str node_two)
+
+(inorder_str ((inorder_str node_two.left) ^ node_two.value ^ (inorder_str node_two.right)))
+
+(inorder_str ((inorder_str node_one) ^ node_two.value ^ (inorder_str node_three)))
+
+(inorder_str 
+    (
+        (inorder_str 
+            ((inorder_str node_one.left) ^ node_one.value ^ (inorder_str node_one.right))
+        ) ^ 
+        node_two.value ^ 
+        (inorder_str 
+            ((inorder_str node_three.left) ^ node_three.value ^ (inorder_str node_three.right))
+        ) ^ 
+    )
+)
+
+(inorder_str 
+    (
+        (inorder_str 
+            ((inorder_str "") ^ "one" ^ (inorder_str ""))
+        ) ^ 
+        "two" ^ 
+        (inorder_str 
+            ((inorder_str "") ^ "three" ^ (inorder_str ""))
+        ) ^ 
+    )
+)
+```
 
 ## Question 4
 Write a function size that takes a btnode and produces an integer that is the number of Nodes in the tree.
