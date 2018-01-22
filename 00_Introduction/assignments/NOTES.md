@@ -12,6 +12,11 @@ let rec factorial (n : int) : int =
 - http://ounit.forge.ocamlcore.org/api-ounit/OUnit2.html#VAL(>::)
 - http://ounit.forge.ocamlcore.org/api-ounit/OUnit2.html#VAL(>:::)
 
+# Exiting the OCaml REPL
+- To end interactive sessions
+    - type ^D (Control D)
+    - call the exit function of type int -> unit: 
+        - `exit 0;;`
 
 # Running the tests
 ```bash
@@ -21,6 +26,15 @@ make
 ./test
 ```
 
+# How to import ocaml files into the REPL at the top level
+
+```ocaml
+(* From the `starter-lab0` directory type in `ocaml` to initiate the REPL *)
+
+#use "functions.ml";;
+```
+
+https://stackoverflow.com/questions/14755664/how-can-i-load-a-ml-file-in-toplevel-of-ocaml-just-like-use-mine-sml-in-sml-n
 
 # Syntax
 ## The `->` operator
@@ -110,3 +124,28 @@ Return the string representation of an integer, in decimal.
 
 See just the whole page
 http://caml.inria.fr/pub/docs/oreilly-book/html/book-ora016.html
+
+# The `^` character
+The `^` character is for string concatenation
+
+http://rigaux.org/language-study/syntax-across-languages-per-language/OCaml.html
+
+# `records` in OCaml
+This is a record/type declaration for OCaml
+
+```
+type btnode =
+  | Leaf
+  | Node of string * btnode * btnode
+```
+
+The `type` declaration and `Node of string * btnode * btnode`
+This is the type declaration 
+
+- Simple Explanation
+    - https://ocaml.org/learn/tutorials/data_types_and_matching.html#Structures
+- Complex Explanation
+    - https://realworldocaml.org/v1/en/html/records.html
+
+# Why is `Node` and `Leaf` declarable even if no data type was created???
+Seriously, what the heck?

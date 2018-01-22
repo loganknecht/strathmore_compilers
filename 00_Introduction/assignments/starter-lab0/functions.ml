@@ -46,8 +46,8 @@ let rec calculate_fibonacci (index : int): int =
 (* ------------------------------- Section 03 ------------------------------- *)
 (* -------------------------------------------------------------------------- *)
 type btnode =
-  | Leaf
-  | Node of string * btnode * btnode
+    Leaf
+  | Node of string * btnode * btnode;;
 
 let m1 = match Leaf with
   | Leaf -> true
@@ -76,6 +76,4 @@ let m4 = match Node("a", Node("b", Leaf, Leaf), Leaf) with
 let rec inorder_str (bt : btnode) : string =
   match bt with
     | Leaf -> ""
-    | Node(s, left, right) ->
-      (inorder_str left) ^ s ^ (inorder_str right)
-
+    | Node(s, left, right) -> (inorder_str left) ^ s ^ (inorder_str right)

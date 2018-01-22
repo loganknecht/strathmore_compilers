@@ -1,5 +1,6 @@
-open OUnit2
 open Functions
+open OUnit2
+open Printf
 
 (* This file contains some example tests.  Feel free to delete and reorganize
 the unnecessary parts of this file; it is provided to match up with the given
@@ -31,7 +32,7 @@ let my_third_test = t_int "my_third_test" (2 + 2) 7;;
 let my_fourth_test = t_int "my_fourth_test" (2 + 2) 4;;
 
 (* -------------------------------------------------------------------------- *)
-(* Max function tests *)
+(* max function tests *)
 (* -------------------------------------------------------------------------- *)
 let max_test_zero_and_one = t_int "max_test_zero_and_one" (max 0 1) 1;;
 let max_test_ten_and_one_thousand = t_int "max_test_ten_and_one_thousand" (max 10 1000) 1000;;
@@ -39,7 +40,7 @@ let max_test_negative_one_and_one = t_int "max_test_negative_one_and_one" (max ~
 let max_test_negative_ten_and_negative_one = t_int "max_test_negative_ten_and_negative_one" (max ~-10 ~-1) ~-1;;
 
 (* -------------------------------------------------------------------------- *)
-(* Fibonacci tests *)
+(* fibonacci tests *)
 (* -------------------------------------------------------------------------- *)
 let fibonacci_test_zero = t_int "fibonacci_test_zero" (calculate_fibonacci 0) 0;;
 let fibonacci_test_one = t_int "fibonacci_test_one" (calculate_fibonacci 1) 1;;
@@ -52,17 +53,55 @@ let fibonacci_test_seven = t_int "fibonacci_test_seven" (calculate_fibonacci 7) 
 let fibonacci_test_eight = t_string "fibonacci_test_eight" (calculate_fibonacci 8) 21;;
 
 
+(* -------------------------------------------------------------------------- *)
+(* inorder_str tests *)
+(* -------------------------------------------------------------------------- *)
+
+(* -------------------------------------------------------------------------- *)
+(*  In-order traversal = 1,2,3,4,5                                            *)
+(*                   4                                                        *)
+(*                /     \                                                     *)
+(*               2       5                                                    *)
+(*            /     \                                                         *)
+(*           1       3                                                        *)
+(* -------------------------------------------------------------------------- *)
+(* Level 3 *)
+let leaf_node_one = Node("one", Leaf, Leaf);;
+let leaf_node_three = Node("three", Leaf, Leaf);;
+
+(* Level 2 *)
+let leaf_node_two = Node("two", leaf_node_one, leaf_node_three);;
+let leaf_node_five = Node("five", Leaf, Leaf);;
+
+(* Level 1 *)
+let leaf_node_four = Node("four", leaf_node_two, leaf_node_five);;
+(* (printf "Derp derp derp") *)
+(* (printf leaf_node_one.s) *)
+
+(* let inorder_str = "inorder_str_only_leaf_nodes" () *)
+(* TODO *)
+
+(* -------------------------------------------------------------------------- *)
+(* Test suite creation *)
+(* -------------------------------------------------------------------------- *)
+(* ---------- Examples ---------- *)
 let suite = "suite">:::[
     my_first_test;
     (* my_second_test; *) (* This is supposed to intentionally fail *)
     (* my_third_test; *)  (* This is supposed to intentionally fail *)
     my_fourth_test;
-    (* ---------- Max function testing ---------- *)
+];;
+
+(* ---------- max testing ---------- *)
+let max_suite = "max_suite">:::[
     max_test_zero_and_one;
     max_test_ten_and_one_thousand;
     max_test_negative_one_and_one;
     max_test_negative_ten_and_negative_one;
-    (* ---------- Fibonacci function testing ---------- *)
+];;
+
+(* ---------- fibonacci testing ---------- *)
+let fibonacci_suite = "fibonacci_suite">:::[
     fibonacci_test_zero;
     fibonacci_test_one;
     fibonacci_test_two;
@@ -74,4 +113,16 @@ let suite = "suite">:::[
     fibonacci_test_eight;
 ];;
 
-run_test_tt_main suite
+(* ---------- inorder_str testing ---------- *)
+let inorder_str_suite = "inorder_str_suite">:::[
+(* NOTHING!!! *)
+];;
+
+
+(* -------------------------------------------------------------------------- *)
+(* Test execution *)
+(* -------------------------------------------------------------------------- *)
+(* run_test_tt_main suite *)
+(* run_test_tt_main max_suite *)
+(* run_test_tt_main fibonacci_suite *)
+run_test_tt_main inorder_str_suite
