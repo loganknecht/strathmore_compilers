@@ -47,42 +47,46 @@ let rec calculate_fibonacci (index : int) : int =
 (* -------------------------------------------------------------------------- *)
 type btnode =
     Leaf
-  | Node of string * btnode * btnode
+    | Node of string * btnode * btnode
 ;;
 
 (* m1 is true *)
-let m1 = match Leaf with
-  | Leaf -> true
-  | Node(s, left, right) -> false
+let m1 = 
+    match Leaf with
+        | Leaf -> true
+        | Node(s, left, right) -> false
 ;;
 
 (* m2 is 44 *)
-let m2 = match Leaf with
-  | Leaf -> 44
-  | Node(s, left, right) -> 99
+let m2 = 
+    match Leaf with
+        | Leaf -> 44
+        | Node(s, left, right) -> 99
 ;;
 
 (* m3 is "a" *)
-let m3 = match Node("a", Leaf, Leaf) with
-  | Leaf -> "z"
-  | Node(s, left, right) -> s
+let m3 = 
+    match Node("a", Leaf, Leaf) with
+        | Leaf -> "z"
+        | Node(s, left, right) -> s
 ;;
 
 (* m4 is "b" *)
-let m4 = match Node("a", Node("b", Leaf, Leaf), Leaf) with
-  | Leaf -> "z"
-  | Node(s, left, right) ->
-    match left with
-      | Leaf -> "y"
-      | Node(s2, left2, right2) -> s2
+let m4 = 
+    match Node("a", Node("b", Leaf, Leaf), Leaf) with
+        | Leaf -> "z"
+        | Node(s, left, right) ->
+        match left with
+            | Leaf -> "y"
+            | Node(s2, left2, right2) -> s2
 ;;
 
 
 let rec inorder_str (bt : btnode) : string =
-  match bt with
-    | Leaf -> ""
-    | Node(s, left, right) -> (inorder_str left) ^ s ^ (inorder_str right)
-    (* | Node(s, left, right) -> (inorder_str left) ^ s ^ ", " ^ (inorder_str right) *)
+    match bt with
+        | Leaf -> ""
+        | Node(s, left, right) -> (inorder_str left) ^ s ^ (inorder_str right)
+        (* | Node(s, left, right) -> (inorder_str left) ^ s ^ ", " ^ (inorder_str right) *)
 ;;
 
 (* -------------------------------------------------------------------------- *)
