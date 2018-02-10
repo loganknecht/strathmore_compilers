@@ -67,5 +67,9 @@ Write a function size that takes a btnode and produces an integer that is the nu
 ## Question 5
 Write a function height that takes a btnode and produces an integer that is the height of the tree.
 
+
+
 ## Question 6
 Make sure to test the above two functions.
+
+

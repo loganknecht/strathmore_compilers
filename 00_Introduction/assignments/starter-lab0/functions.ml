@@ -21,7 +21,7 @@ let max (n : int) (m : int) : int =
 let fibonacci_index = 7
 
 (* Fill in the functions you need to write here *)
-let rec calculate_fibonacci (index : int): int =
+let rec calculate_fibonacci (index : int) : int =
     if index == 0 then 0
     else if index == 1 then 1
     else (calculate_fibonacci (index - 2)) + (calculate_fibonacci (index - 1));;
@@ -47,30 +47,35 @@ let rec calculate_fibonacci (index : int): int =
 (* -------------------------------------------------------------------------- *)
 type btnode =
     Leaf
-  | Node of string * btnode * btnode;;
+  | Node of string * btnode * btnode
+;;
 
+(* m1 is true *)
 let m1 = match Leaf with
   | Leaf -> true
-  | Node(s, left, right) -> false;;
-(* m1 is true *)
+  | Node(s, left, right) -> false
+;;
 
+(* m2 is 44 *)
 let m2 = match Leaf with
   | Leaf -> 44
-  | Node(s, left, right) -> 99;;
-(* m2 is 44 *)
+  | Node(s, left, right) -> 99
+;;
 
+(* m3 is "a" *)
 let m3 = match Node("a", Leaf, Leaf) with
   | Leaf -> "z"
-  | Node(s, left, right) -> s;;
-(* m3 is "a" *)
+  | Node(s, left, right) -> s
+;;
 
+(* m4 is "b" *)
 let m4 = match Node("a", Node("b", Leaf, Leaf), Leaf) with
   | Leaf -> "z"
   | Node(s, left, right) ->
     match left with
       | Leaf -> "y"
-      | Node(s2, left2, right2) -> s2;;
-(* m4 is "b" *)
+      | Node(s2, left2, right2) -> s2
+;;
 
 
 let rec inorder_str (bt : btnode) : string =
@@ -78,3 +83,21 @@ let rec inorder_str (bt : btnode) : string =
     | Leaf -> ""
     | Node(s, left, right) -> (inorder_str left) ^ s ^ (inorder_str right)
     (* | Node(s, left, right) -> (inorder_str left) ^ s ^ ", " ^ (inorder_str right) *)
+;;
+
+(* -------------------------------------------------------------------------- *)
+(* ------------------------------- Section 04 ------------------------------- *)
+(* -------------------------------------------------------------------------- *)
+(* 
+Write a function size that takes a btnode and produces an integer that is the
+number of Nodes in the tree.
+*)
+let rec get_binary_tree_size(binary_tree_node : btnode) : int = 
+    if true
+    then 0
+    else 1
+;;
+
+let binary_tree_size = (get_binary_tree_size Leaf);;
+
+(printf "Size is %d" binary_tree_size)
