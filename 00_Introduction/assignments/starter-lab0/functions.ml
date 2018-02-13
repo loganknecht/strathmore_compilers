@@ -45,9 +45,9 @@ let rec calculate_fibonacci (index : int) : int =
 (* -------------------------------------------------------------------------- *)
 (* ------------------------------- Section 03 ------------------------------- *)
 (* -------------------------------------------------------------------------- *)
-type btnode =
+type binary_tree_node =
     Leaf
-    | Node of string * btnode * btnode
+    | Node of string * binary_tree_node * binary_tree_node
 ;;
 
 (* m1 is true *)
@@ -82,7 +82,7 @@ let m4 =
 ;;
 
 
-let rec inorder_str (bt : btnode) : string =
+let rec inorder_str (bt : binary_tree_node) : string =
     match bt with
         | Leaf -> ""
         | Node(s, left, right) -> (inorder_str left) ^ s ^ (inorder_str right)
@@ -93,15 +93,42 @@ let rec inorder_str (bt : btnode) : string =
 (* ------------------------------- Section 04 ------------------------------- *)
 (* -------------------------------------------------------------------------- *)
 (* 
-Write a function size that takes a btnode and produces an integer that is the
+Write a function size that takes a binary_tree_node and produces an integer that is the
 number of Nodes in the tree.
 *)
-let rec get_binary_tree_size(binary_tree_node : btnode) : int = 
-    if true
-    then 0
-    else 1
+(* TODO: This double counts, should take the deeper depth and return it *)
+let rec get_binary_tree_size(input_binary_tree_node : binary_tree_node) : int = 
+    match input_binary_tree_node with
+        | Leaf -> 0
+        | Node(value, left_node, right_node) -> 
+            1 + (max 
+                (get_binary_tree_size left_node)
+                (get_binary_tree_size right_node))
 ;;
 
-let binary_tree_size = (get_binary_tree_size Leaf);;
+(* -------------------------------------------------------------------------- *)
+(* TODO: Move these over to the tests section                                 *)
+(* -------------------------------------------------------------------------- *)
+let leaf_node_one = Node("one", Leaf, Leaf);;
+let leaf_node_three = Node("three", Leaf, Leaf);;
+
+(* Level 2 *)
+let leaf_node_two = Node("two", leaf_node_one, leaf_node_three);;
+let leaf_node_five = Node("five", Leaf, Leaf);;
+
+(* Level 1 *)
+let leaf_node_four = Node("four", leaf_node_two, leaf_node_five);;
+
+let child_node = Node("child", Leaf, Leaf);;
+let root_node = Node("root", leaf_node_four, child_node);;
+(* -------------------------------------------------------------------------- *)
+let example_node = Node("2", 
+    Node("1", Leaf, Leaf), 
+    Node("3", Leaf, Leaf))
+;;
+(* -------------------------------------------------------------------------- *)
+(* let binary_tree_size = (get_binary_tree_size Leaf);; *)
+(* let binary_tree_size = (get_binary_tree_size example_node);; *)
+let binary_tree_size = (get_binary_tree_size root_node);;
 
 (printf "Size is %d" binary_tree_size)
