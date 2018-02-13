@@ -5,3 +5,6 @@
 # OCaml Tutorials
 - Ocaml Website
     - https://ocaml.org/learn/tutorials/basics.html
+
+# Learn Ocaml in Y Minutes
+- https://learnxinyminutes.com/docs/ocaml/
