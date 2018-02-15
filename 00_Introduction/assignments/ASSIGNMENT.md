@@ -1,8 +1,9 @@
 # Assignment Link
 - https://www.cs.swarthmore.edu/~jpolitz/cs75/s16/n_ocaml-intro.html
 
-# 3.3 Exercises
-## Question 1
+# Section 3
+## 3.3 Exercises
+### Question 1
 Write a test function t_string that’s like t_int, but tests for equality of strings. Can you write a function that produces a string form of the results like t_int did for integers?
 (This is a trick question.)
 
@@ -10,12 +11,12 @@ So here is my understanding of this. The `t_int` function is a wrapper for perfo
 
 This doesn't require a change in the function because the `assert_equal` function does not appear to have a type required for the arguments.
 
-## Question 2
+### Question 2
 Write at least five interesting tests for inorder_str.
 
 Please see `00_Introduction/assignments/starter-lab0/test.ml`
 
-## Question 3
+### Question 3
 Write out the substitution-based evaluation of inorder_str on a tree with at least 3 nodes.
 
 ```ocaml
@@ -59,17 +60,22 @@ Write out the substitution-based evaluation of inorder_str on a tree with at lea
 )
 ```
 
-## Question 4
+### Question 4
 Write a function size that takes a btnode and produces an integer that is the number of Nodes in the tree.
 
+Done
 
-
-## Question 5
+### Question 5
 Write a function height that takes a btnode and produces an integer that is the height of the tree.
 
+Done
 
-
-## Question 6
+### Question 6
 Make sure to test the above two functions.
+
+Done
+
+# Section 4
+
 
 

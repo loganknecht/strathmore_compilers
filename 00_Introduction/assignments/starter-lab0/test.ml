@@ -149,24 +149,17 @@ let get_binary_tree_node_count_test_well_formed_complete_binary_tree =
 (* -------------------------------------------------------------------------- *)
 (* Test suite creation *)
 (* -------------------------------------------------------------------------- *)
-(* ---------- Examples ---------- *)
-let suite = "suite">:::[
+let full_suite = "suite">:::[
     my_first_test;
     (* my_second_test; *) (* This is supposed to intentionally fail *)
     (* my_third_test; *)  (* This is supposed to intentionally fail *)
     my_fourth_test;
-];;
-
-(* ---------- max testing ---------- *)
-let max_suite = "max_suite">:::[
+    (* ---------- max testing ---------- *)
     max_test_zero_and_one;
     max_test_ten_and_one_thousand;
     max_test_negative_one_and_one;
     max_test_negative_ten_and_negative_one;
-];;
-
-(* ---------- fibonacci testing ---------- *)
-let fibonacci_suite = "fibonacci_suite">:::[
+    (* ---------- fibonacci testing ---------- *)
     fibonacci_test_zero;
     fibonacci_test_one;
     fibonacci_test_two;
@@ -176,37 +169,24 @@ let fibonacci_suite = "fibonacci_suite">:::[
     fibonacci_test_six;
     fibonacci_test_seven;
     fibonacci_test_eight;
-];;
-
-(* ---------- inorder_str testing ---------- *)
-let inorder_str_suite = "inorder_str_suite">:::[
+    (* ---------- inorder_str testing ---------- *)
     inorder_str_test_well_formed_complete_binary_tree;
     inorder_str_test_well_formed_full_binary_tree;
     inorder_str_test_node_with_only_leaf_nodes;
     inorder_str_test_leaf_node_no_children;
     inorder_str_test_node_with_children_pointing_to_same_node;
-];;
-
-(* ---------- get_binary_tree_height testing ---------- *)
-let get_binary_tree_height_suite = "get_binary_tree_height_suite">:::[
+    (* ---------- get_binary_tree_height testing ---------- *)
     get_binary_tree_height_test_node_with_only_leaf_nodes;
     get_binary_tree_height_test_well_formed_complete_binary_tree;
     get_binary_tree_height_test_well_formed_full_binary_tree;
-];;
-
-(* ---------- get_binary_tree_count testing ---------- *)
-let get_binary_tree_node_count_suite = "get_binary_tree_node_count_suite">:::[
+    (* ---------- get_binary_tree_count testing ---------- *)
     get_binary_tree_node_count_test_node_with_only_leaf_nodes;
     get_binary_tree_node_count_test_well_formed_full_binary_tree;
     get_binary_tree_node_count_test_well_formed_complete_binary_tree;
 ];;
 
+
 (* -------------------------------------------------------------------------- *)
 (* Test execution *)
 (* -------------------------------------------------------------------------- *)
-(* run_test_tt_main suite *)
-(* run_test_tt_main max_suite *)
-(* run_test_tt_main fibonacci_suite *)
-(* run_test_tt_main inorder_str_suite *)
-(* run_test_tt_main get_binary_tree_height_suite *)
-run_test_tt_main get_binary_tree_node_count_suite
+run_test_tt_main full_suite
