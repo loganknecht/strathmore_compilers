@@ -96,14 +96,25 @@ let rec inorder_str (bt : binary_tree_node) : string =
 Write a function size that takes a binary_tree_node and produces an integer that is the
 number of Nodes in the tree.
 *)
-(* TODO: This double counts, should take the deeper depth and return it *)
-let rec get_binary_tree_size(input_binary_tree_node : binary_tree_node) : int = 
+let rec get_binary_tree_node_count(input_binary_tree_node : binary_tree_node) : int = 
+    match input_binary_tree_node with
+        | Leaf -> 0
+        | Node(value, left_node, right_node) -> 
+            (1 + 
+                (get_binary_tree_node_count left_node) + 
+                (get_binary_tree_node_count right_node))
+;;
+
+
+(* Write a function height that takes a btnode and produces an integer that is
+the height of the tree. *)
+let rec get_binary_tree_height(input_binary_tree_node : binary_tree_node) : int = 
     match input_binary_tree_node with
         | Leaf -> 0
         | Node(value, left_node, right_node) -> 
             1 + (max 
-                (get_binary_tree_size left_node)
-                (get_binary_tree_size right_node))
+                (get_binary_tree_height left_node)
+                (get_binary_tree_height right_node))
 ;;
 
 (* -------------------------------------------------------------------------- *)
@@ -127,8 +138,8 @@ let example_node = Node("2",
     Node("3", Leaf, Leaf))
 ;;
 (* -------------------------------------------------------------------------- *)
-(* let binary_tree_size = (get_binary_tree_size Leaf);; *)
-(* let binary_tree_size = (get_binary_tree_size example_node);; *)
-let binary_tree_size = (get_binary_tree_size root_node);;
+(* let binary_tree_size = (get_binary_tree_height Leaf);; *)
+(* let binary_tree_size = (get_binary_tree_height example_node);; *)
+(* let binary_tree_size = (get_binary_tree_height root_node);; *)
 
-(printf "Size is %d" binary_tree_size)
+(* (printf "%d" (get_binary_tree_node_count leaf_node_four)) *)

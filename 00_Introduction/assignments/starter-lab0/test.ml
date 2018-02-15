@@ -79,18 +79,73 @@ let leaf_node_four = Node("four", leaf_node_two, leaf_node_five);;
 let child_node = Node("child", Leaf, Leaf);;
 let root_node = Node("root", child_node, child_node);;
 
-(* Example how to run *)
-(* 
-let inorder_str_output = (inorder_str leaf_node_four);;
-(printf "inorder_str_only_leaf_nodes: %s\n" inorder_str_output);;
- *)
+let inorder_str_test_well_formed_complete_binary_tree = 
+    (t_string 
+        "inorder_str_test_well_formed_complete_binary_tree" 
+        (inorder_str leaf_node_four) 
+        "onetwothreefourfive");;
+let inorder_str_test_well_formed_full_binary_tree = 
+    (t_string 
+        "inorder_str_test_well_formed_full_binary_tree" 
+        (inorder_str leaf_node_two) 
+        "onetwothree");;
+let inorder_str_test_node_with_only_leaf_nodes = 
+    (t_string 
+        "inorder_str_test_node_with_only_leaf_nodes" 
+        (inorder_str leaf_node_one) 
+        "one");;
+let inorder_str_test_leaf_node_no_children = 
+    (t_string 
+        "inorder_str_test_leaf_node_no_children" 
+        (inorder_str Leaf) 
+        "");;
+let inorder_str_test_node_with_children_pointing_to_same_node = 
+    (t_string 
+        "inorder_str_test_node_with_children_pointing_to_same_node" 
+        (inorder_str root_node) 
+        "childrootchild");;
 
-let inorder_str_test_well_formed_complete_binary_tree = t_string "inorder_str_test_well_formed_complete_binary_tree" (inorder_str leaf_node_four) "onetwothreefourfive";;
-let inorder_str_test_well_formed_full_binary_tree = t_string "inorder_str_test_well_formed_full_binary_tree" (inorder_str leaf_node_two) "onetwothree";;
-let inorder_str_test_node_with_only_leaf_nodes = t_string "inorder_str_test_node_with_only_leaf_nodes" (inorder_str leaf_node_one) "one";;
-let inorder_str_test_leaf_node_no_children = t_string "inorder_str_test_leaf_node_no_children" (inorder_str Leaf) "";;
-let inorder_str_test_node_with_children_pointing_to_same_node = t_string "inorder_str_test_node_with_children_pointing_to_same_node" (inorder_str root_node) "childrootchild";;
+(* -------------------------------------------------------------------------- *)
+(* get_binary_tree_height tests *)
+(* -------------------------------------------------------------------------- *)
+let get_binary_tree_height_test_node_with_only_leaf_nodes = 
+    (t_int
+        "get_binary_tree_height_test_node_with_only_leaf_nodes" 
+        (get_binary_tree_height leaf_node_one) 
+        1);;
 
+let get_binary_tree_height_test_well_formed_full_binary_tree = 
+    (t_int
+        "get_binary_tree_height_test_well_formed_full_binary_tree" 
+        (get_binary_tree_height leaf_node_two)
+        2);;
+
+let get_binary_tree_height_test_well_formed_complete_binary_tree = 
+    (t_int
+        "get_binary_tree_height_test_well_formed_complete_binary_tree" 
+        (get_binary_tree_height leaf_node_four)
+        3);;
+
+(* -------------------------------------------------------------------------- *)
+(* get_binary_tree_node_count tests *)
+(* -------------------------------------------------------------------------- *)
+let get_binary_tree_node_count_test_node_with_only_leaf_nodes = 
+    (t_int
+        "get_binary_tree_node_count_test_node_with_only_leaf_nodes" 
+        (get_binary_tree_node_count leaf_node_one) 
+        1);;
+
+let get_binary_tree_node_count_test_well_formed_full_binary_tree = 
+    (t_int
+        "get_binary_tree_node_count_test_well_formed_full_binary_tree" 
+        (get_binary_tree_node_count leaf_node_two)
+        3);;
+
+let get_binary_tree_node_count_test_well_formed_complete_binary_tree = 
+    (t_int
+        "get_binary_tree_node_count_test_well_formed_complete_binary_tree" 
+        (get_binary_tree_node_count leaf_node_four)
+        5);;
 (* -------------------------------------------------------------------------- *)
 (* Test suite creation *)
 (* -------------------------------------------------------------------------- *)
@@ -132,6 +187,19 @@ let inorder_str_suite = "inorder_str_suite">:::[
     inorder_str_test_node_with_children_pointing_to_same_node;
 ];;
 
+(* ---------- get_binary_tree_height testing ---------- *)
+let get_binary_tree_height_suite = "get_binary_tree_height_suite">:::[
+    get_binary_tree_height_test_node_with_only_leaf_nodes;
+    get_binary_tree_height_test_well_formed_complete_binary_tree;
+    get_binary_tree_height_test_well_formed_full_binary_tree;
+];;
+
+(* ---------- get_binary_tree_count testing ---------- *)
+let get_binary_tree_node_count_suite = "get_binary_tree_node_count_suite">:::[
+    get_binary_tree_node_count_test_node_with_only_leaf_nodes;
+    get_binary_tree_node_count_test_well_formed_full_binary_tree;
+    get_binary_tree_node_count_test_well_formed_complete_binary_tree;
+];;
 
 (* -------------------------------------------------------------------------- *)
 (* Test execution *)
@@ -139,4 +207,6 @@ let inorder_str_suite = "inorder_str_suite">:::[
 (* run_test_tt_main suite *)
 (* run_test_tt_main max_suite *)
 (* run_test_tt_main fibonacci_suite *)
-run_test_tt_main inorder_str_suite
+(* run_test_tt_main inorder_str_suite *)
+(* run_test_tt_main get_binary_tree_height_suite *)
+run_test_tt_main get_binary_tree_node_count_suite
