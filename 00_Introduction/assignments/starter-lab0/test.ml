@@ -147,8 +147,11 @@ let get_binary_tree_node_count_test_well_formed_complete_binary_tree =
         (get_binary_tree_node_count leaf_node_four)
         5);;
 
-(* -------------------------------------------------------------------------- *)
+(* ========================================================================== *)
 (* Linked List tests                                                          *)
+(* ========================================================================== *)
+(* -------------------------------------------------------------------------- *)
+(* increment_all tests                                                        *)
 (* -------------------------------------------------------------------------- *)
 let increment_all_empty_list =
     (t_string
@@ -173,6 +176,60 @@ let increment_all_negative_elements =
         "increment_all_many_element_list"
         (increment_all [-1;0;1])
         [0;1;2]);;
+
+(* -------------------------------------------------------------------------- *)
+(* long_strings tests                                                         *)
+(* -------------------------------------------------------------------------- *)
+let long_strings_empty_list =
+    (t_string
+        "long_strings_empty_list"
+        (long_strings [] 0)
+        []);;
+
+let long_strings_zero_length_strings =
+    (t_string
+        "long_strings_zero_length_strings"
+        (long_strings ["one";"two";"three"] 0)
+        ["one";"two";"three"]);;
+
+let long_strings_three_length_strings =
+    (t_string
+        "long_strings_zero_length_strings"
+        (long_strings ["one";"two";"three"] 3)
+        ["three"]);;
+
+let long_strings_five_length_strings =
+    (t_string
+        "long_strings_zero_length_strings"
+        (long_strings ["one";"two";"three"] 5)
+        []);;
+
+(* -------------------------------------------------------------------------- *)
+(* every_other tests                                                          *)
+(* -------------------------------------------------------------------------- *)
+let every_other_empty_list =
+    (t_string
+        "every_other_empty_list"
+        (every_other [])
+        []);;
+
+let every_other_single_element =
+    (t_string
+        "every_other_single_element"
+        (every_other ["one"])
+        ["one"]);;
+
+let every_other_two_elements =
+    (t_string
+        "every_other_two_elements"
+        (every_other ["one";"two"])
+        ["one"]);;
+
+let every_other_three_elements =
+    (t_string
+        "every_other_three_elements"
+        (every_other [1;2;3])
+        [1;3]);;
 
 (* -------------------------------------------------------------------------- *)
 (* Test suite creation *)
@@ -216,6 +273,16 @@ let full_suite = "suite">:::[
     increment_all_single_element_list;
     increment_all_many_element_list;
     increment_all_negative_elements;
+    (* ---------- long_strings ---------- *)
+    long_strings_empty_list;
+    long_strings_zero_length_strings;
+    long_strings_three_length_strings;
+    long_strings_five_length_strings;
+    (* ---------- every_other ---------- *)
+    every_other_empty_list;
+    every_other_single_element;
+    every_other_two_elements;
+    every_other_three_elements;
 ];;
 
 
