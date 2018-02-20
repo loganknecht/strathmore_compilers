@@ -28,7 +28,6 @@ let rec calculate_fibonacci (index : int) : int =
 
 (* (printf "Fibonacci of %d is %d\n" fibonacci_index (calculate_fibonacci fibonacci_index)) *)
 
-
 (* -------------------------------------------------------------------------- *)
 (* Fibonacci substitution style *)
 (* -------------------------------------------------------------------------- *)
@@ -137,9 +136,3 @@ let example_node = Node("2",
     Node("1", Leaf, Leaf), 
     Node("3", Leaf, Leaf))
 ;;
-(* -------------------------------------------------------------------------- *)
-(* let binary_tree_size = (get_binary_tree_height Leaf);; *)
-(* let binary_tree_size = (get_binary_tree_height example_node);; *)
-(* let binary_tree_size = (get_binary_tree_height root_node);; *)
-
-(* (printf "%d" (get_binary_tree_node_count leaf_node_four)) *)

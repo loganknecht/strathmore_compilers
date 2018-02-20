@@ -37,6 +37,16 @@ make
 https://stackoverflow.com/questions/14755664/how-can-i-load-a-ml-file-in-toplevel-of-ocaml-just-like-use-mine-sml-in-sml-n
 
 # Syntax
+## The `::` operator
+This is cons equivalent
+
+```
+:: - adding an element at the beginning (list cons) (return the new list (no side-effect))
+```
+
+See the `Bags and Lists` section
+http://rigaux.org/language-study/syntax-across-languages-per-language/OCaml.html
+
 ## The `->` operator
 An anonymous function
 

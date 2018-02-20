@@ -1,6 +1,6 @@
 open Functions
+open Linked_list
 open OUnit2
-open Printf
 
 (* This file contains some example tests.  Feel free to delete and reorganize
 the unnecessary parts of this file; it is provided to match up with the given
@@ -146,6 +146,34 @@ let get_binary_tree_node_count_test_well_formed_complete_binary_tree =
         "get_binary_tree_node_count_test_well_formed_complete_binary_tree" 
         (get_binary_tree_node_count leaf_node_four)
         5);;
+
+(* -------------------------------------------------------------------------- *)
+(* Linked List tests                                                          *)
+(* -------------------------------------------------------------------------- *)
+let increment_all_empty_list =
+    (t_string
+        "increment_all_empty_list"
+        (increment_all [])
+        []);;
+
+let increment_all_single_element_list =
+    (t_string
+        "increment_all_empty_list"
+        (increment_all [0])
+        [1]);;
+
+let increment_all_many_element_list =
+    (t_string
+        "increment_all_many_element_list"
+        (increment_all [0;1;2])
+        [1;2;3]);;
+
+let increment_all_negative_elements =
+    (t_string
+        "increment_all_many_element_list"
+        (increment_all [-1;0;1])
+        [0;1;2]);;
+
 (* -------------------------------------------------------------------------- *)
 (* Test suite creation *)
 (* -------------------------------------------------------------------------- *)
@@ -183,6 +211,11 @@ let full_suite = "suite">:::[
     get_binary_tree_node_count_test_node_with_only_leaf_nodes;
     get_binary_tree_node_count_test_well_formed_full_binary_tree;
     get_binary_tree_node_count_test_well_formed_complete_binary_tree;
+    (* ---------- increment_all ---------- *)
+    increment_all_empty_list;
+    increment_all_single_element_list;
+    increment_all_many_element_list;
+    increment_all_negative_elements;
 ];;
 
 
