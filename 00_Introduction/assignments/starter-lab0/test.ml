@@ -232,6 +232,63 @@ let every_other_three_elements =
         [1;3]);;
 
 (* -------------------------------------------------------------------------- *)
+(* sum_all tests                                                              *)
+(* -------------------------------------------------------------------------- *)
+let sum_all_empty_list =
+    (t_string
+        "sum_all_empty_list"
+        (sum_all [])
+        []);;
+
+let sum_all_one_list_of_one_empty_list =
+    (t_string
+        "sum_all_one_list_of_one_empty_list"
+        (sum_all [[]])
+        [0]);;
+
+let sum_all_three_lists_of_empty_list_each =
+    (t_string
+        "sum_all_three_lists_of_empty_list_each"
+        (sum_all [[];[];[]])
+        [0;0;0]);;
+
+let sum_all_one_list_of_one_element_each =
+    (t_string
+        "sum_all_one_list_of_one_element_each"
+        (sum_all [[1]])
+        [1]);;
+
+let sum_all_one_list_of_two_elements =
+    (t_string
+        "sum_all_one_list_of_two_elements"
+        (sum_all [[1;2]])
+        [3]);;
+
+let sum_all_one_list_of_three_elements =
+    (t_string
+        "sum_all_one_list_of_three_elements"
+        (sum_all [[1;2;3]])
+        [6]);;
+
+let sum_all_two_lists_of_one_element_each =
+    (t_string
+        "sum_all_two_lists_of_one_element_each"
+        (sum_all [[1];[1]])
+        [1;1]);;
+
+let sum_all_two_lists_of_two_elements_each =
+    (t_string
+        "sum_all_two_lists_of_two_elements_each"
+        (sum_all [[1;2];[3;4]])
+        [3;7]);;
+
+let sum_all_three_lists_of_three_elements_each =
+    (t_string
+        "sum_all_three_lists_of_three_elements_each"
+        (sum_all [[1;2;3];[4;5;6];[7;8;9]])
+        [6;15;24]);;
+
+(* -------------------------------------------------------------------------- *)
 (* Test suite creation *)
 (* -------------------------------------------------------------------------- *)
 let full_suite = "suite">:::[
@@ -283,6 +340,16 @@ let full_suite = "suite">:::[
     every_other_single_element;
     every_other_two_elements;
     every_other_three_elements;
+    (* ---------- sum_all ---------- *)
+    sum_all_empty_list;
+    sum_all_one_list_of_one_empty_list;
+    sum_all_three_lists_of_empty_list_each;
+    sum_all_one_list_of_one_element_each;
+    sum_all_one_list_of_two_elements;
+    sum_all_one_list_of_three_elements;
+    sum_all_two_lists_of_one_element_each;
+    sum_all_two_lists_of_two_elements_each;
+    sum_all_three_lists_of_three_elements_each;
 ];;
 
 
