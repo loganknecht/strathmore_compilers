@@ -5,8 +5,9 @@ open Printf
 (* -------------------------------------------------------------------------- *)
 let max (n : int) (m : int) : int =
     if n > m
-    then n
-    else m;;
+        then n
+    else
+        m;;
 
 (* -------------------------------------------------------------------------- *)
 (* Fibonacci implementation *)
@@ -22,9 +23,12 @@ let fibonacci_index = 7
 
 (* Fill in the functions you need to write here *)
 let rec calculate_fibonacci (index : int) : int =
-    if index == 0 then 0
-    else if index == 1 then 1
-    else (calculate_fibonacci (index - 2)) + (calculate_fibonacci (index - 1));;
+    if index == 0
+        then 0
+    else if index == 1
+        then 1
+    else
+        (calculate_fibonacci (index - 2)) + (calculate_fibonacci (index - 1));;
 
 (* (printf "Fibonacci of %d is %d\n" fibonacci_index (calculate_fibonacci fibonacci_index)) *)
 
