@@ -18,6 +18,15 @@ let rec factorial (n : int) : int =
     - call the exit function of type int -> unit: 
         - `exit 0;;`
 
+# Installing Ocaml dependencies
+`Ocaml` uses `opam` as the package manager to handle library distribution
+
+## Install examples
+```
+opam install ounit
+opam install extlib
+```
+
 # Running the tests
 ```bash
 // From the starter-lab0/ directory
