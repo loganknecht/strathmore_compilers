@@ -5,20 +5,17 @@
 let rec increment_all (l : int list) : int list =
   match l with
     | [] -> []
-    | first::rest ->
-      (first + 1)::(increment_all rest);;
+    | first::rest -> (first + 1)::(increment_all rest);;
 
 let rec negate_all (l : int list) : int list =
   match l with
     | [] -> []
-    | first::rest ->
-      ((-1) * first)::(negate_all rest);;
+    | first::rest -> ((-1) * first)::(negate_all rest);;
 
 let rec update_all (l : 'a list) (f : 'a -> 'b) : 'b list =
   match l with
     | [] -> []
-    | first::rest ->
-      (f first)::(update_all rest f);;
+    | first::rest -> (f first)::(update_all rest f);;
 
 let increment (x : int): int = x + 1;;
 
@@ -107,10 +104,8 @@ let rec length_all4 l =
 let rec length_all5 l =
   match l with
     | [] -> []
-    | first::second::rest ->
-      (first < second)::(length_all5 rest)
-    | [first] ->
-      [];;
+    | first::second::rest -> (first < second)::(length_all5 rest)
+    | [first] -> [];;
 
 
 
@@ -119,17 +114,14 @@ let rec length_all5 l =
 let rec length_all (l : string list) : int list =
   match l with
     | [] -> []
-    | first::rest ->
-      (String.length first)::(length_all rest);;
-  
+    | first::rest -> (String.length first)::(length_all rest);;
+
 let rec length_all3 l =
   match l with
     | [] -> []
     | first::rest -> first::(length_all3 rest);;
 
-
 let rec length_all2 l =
   match l with
     | [] -> []
-    | first::rest ->
-      (String.length first)::(length_all2 rest);;
+    | first::rest -> (String.length first)::(length_all2 rest);;
