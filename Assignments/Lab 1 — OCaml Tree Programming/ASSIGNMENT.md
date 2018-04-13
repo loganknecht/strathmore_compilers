@@ -23,13 +23,9 @@ let tup = (1, "a", []);;
 let (one, a, empty_list) = tup;
 
 (*
-
   one is 1
-
   a is "a"
-
   empty_list is []
-
 *)
 ```
 
