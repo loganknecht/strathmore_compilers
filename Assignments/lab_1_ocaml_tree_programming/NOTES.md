@@ -1,3 +1,9 @@
+# OCaml Lecture Notes From Cornell
+- https://www.cs.cornell.edu/courses/cs3110/2011fa/lecturenotes.asp
+
+# Inspecting the object in the REPL
+
+
 # Tuples
 - Built in convenience functions `fst` and `snd` to retrieve the first and second elements of a tuple
 
