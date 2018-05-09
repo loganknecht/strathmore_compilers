@@ -48,15 +48,13 @@ let suite = "suite">:::all_tests;;
 
 (* ========================================================================== *)
 (* All of this is broken :( *)
-(* 
-let option_to_string = function
+let 'option_to_string = function
     | None -> "NONE"
-    | Leaf -> "LEAF"
     | Some -> "SOME"
 
-(option_to_string output)
+(* (option_to_string output) *)
 
- *)(* (Printf.print output) *)
+(* (Printf.print output) *)
 
 (* let print_get_output (output_from_get_function : 'output) =
     match output_from_get_function with
